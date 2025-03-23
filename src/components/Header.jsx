@@ -6,7 +6,7 @@ function Header() {
     return (
         <>
            
-            <div className="parent " style={{ height: "100vh",  }}>
+            <div className="parent " style={{ height: "100vh"  }}>
             {/* Título jmg */}
                 <div className="share-tech-regular  div1 text-center p-5  ">
                 <h3>jmg.</h3>

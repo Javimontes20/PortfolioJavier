@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../components/Header";
 import { WavyBackground } from "../components/ui/wavy-background";
+import Projects from "../components/projects";
 
 
 
@@ -16,6 +17,7 @@ function Main() {
                 <div className="relative z-10">
                     {/* Aquí va todo el contenido encima del fondo */}
                     <Header />
+                    <Projects />
                 </div>
             </WavyBackground>
 

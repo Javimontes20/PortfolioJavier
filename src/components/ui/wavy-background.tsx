@@ -24,6 +24,7 @@ export const WavyBackground = ({
     ctx,
     canvas;
   const canvasRef = useRef(null);
+
   const getSpeed = () => {
     switch (speed) {
       case "slow":
@@ -57,6 +58,7 @@ export const WavyBackground = ({
     "#e879f9",
     "#22d3ee",
   ];
+
   const drawWave = (n) => {
     nt += getSpeed();
     for (i = 0; i < n; i++) {
@@ -65,7 +67,7 @@ export const WavyBackground = ({
       ctx.strokeStyle = waveColors[i % waveColors.length];
       for (x = 0; x < w; x += 5) {
         var y = noise(x / 800, 0.3 * i, nt) * 100;
-        ctx.lineTo(x, y + h * 0.5); // adjust for height, currently at 50% of the container
+        ctx.lineTo(x, y + h * 0.5); // ajusta la altura, 50% del contenedor
       }
       ctx.stroke();
       ctx.closePath();
@@ -90,22 +92,34 @@ export const WavyBackground = ({
 
   const [isSafari, setIsSafari] = useState(false);
   useEffect(() => {
-    // I'm sorry but i have got to support it on safari.
-    setIsSafari(typeof window !== "undefined" &&
-      navigator.userAgent.includes("Safari") &&
-      !navigator.userAgent.includes("Chrome"));
+    setIsSafari(
+      typeof window !== "undefined" &&
+        navigator.userAgent.includes("Safari") &&
+        !navigator.userAgent.includes("Chrome")
+    );
   }, []);
 
   return (
     <div
-      className={cn("h-screen flex flex-col items-center justify-center", containerClassName)}>
+      className={cn("relative", containerClassName)}>
+      
+      {/* Canvas con fondo fijo */}
       <canvas
         className="absolute inset-0 z-0"
         ref={canvasRef}
         id="canvas"
         style={{
           ...(isSafari ? { filter: `blur(${blur}px)` } : {}),
+          backgroundAttachment: "fixed",  // Fondo fijo al hacer scroll
+          position: "fixed",  // Fijar el canvas en la pantalla
+          top: 0,
+          left: 0,
+          zIndex: -1,  // Fondo detrás del contenido
+          width: "100%",  // Asegura que cubra toda la anchura
+          height: "100%",  // Asegura que cubra toda la altura
         }}></canvas>
+
+      {/* Contenido principal que se moverá */}
       <div className={cn("relative z-10", className)} {...props}>
         {children}
       </div>
