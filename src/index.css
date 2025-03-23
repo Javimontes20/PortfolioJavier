@@ -3,6 +3,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Share+Tech&display=swap');
 @import "tailwindcss";
 
+html {
+    scroll-behavior: smooth;
+}
 .parent {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -94,6 +97,26 @@
 .navbar-collapse.show {
     display: block;
     /* Mostrar el menú cuando se haga clic en el hamburguesa */
+}
+
+.parentProjects {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.div1-P {
+    grid-area: 1 / 1 / 4 / 5;
+}
+
+.div2-P {
+    grid-area: 1 / 6 / 4 / 10;
+}
+
+.div3-P {
+    grid-area: 5 / 1 / 8 / 10;
 }
 
 /* Estilos para pantallas más grandes (tabletas y mayores) */

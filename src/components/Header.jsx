@@ -6,7 +6,7 @@ function Header() {
     return (
         <>
            
-            <div className="parent " style={{ height: "100vh"  }}>
+            <div id="home" className="parent " style={{ height: "100vh"  }}>
             {/* Título jmg */}
                 <div className="share-tech-regular  div1 text-center p-5  ">
                 <h3>jmg.</h3>
@@ -19,10 +19,10 @@ function Header() {
                     >
                         <div class="z-10 absolute w-full h-full peer"></div>
                         <div
-                            class="absolute peer-hover:-top-20 peer-hover:-left-16 peer-hover:w-[140%] peer-hover:h-[140%] -top-32 -left-16 w-32 h-44 rounded-full bg-[#d57536]  transition-all duration-500"
+                            class="absolute peer-hover:-top-20 peer-hover:-left-16 peer-hover:w-[140%] peer-hover:h-[140%] -top-32 -left-16 w-32 h-44 rounded-full bg-[#d57536]   transition-all duration-500"
                         ></div>
                         <div
-                            class="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full -bottom-32 -right-16 w-36 h-44 rounded-full bg-[#d57536] transition-all duration-500"
+                            class="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full -bottom-32 -right-16 w-36 h-44 rounded-full bg-[#d57536]   transition-all duration-500"
                         >
                             Nice to meet u,<br />Enjoy
                         </div>
@@ -40,20 +40,42 @@ function Header() {
                     <div className="div3 p-5 ml-5 mb-5  ">
                         <ul className=" list-unstyled d-flex flex-column justify-content-around h-100">
                         <li>
-                            <a href="#" className="nav-link pNav manrope-regular relative group text-gray-600 hover:text-black">
-                                <span className="relative z-10 p-1 font-normal group-hover:font-bold">Home</span> {/* El texto se vuelve negrita en hover */}
+                            <a
+                                href="#home" // Cambia esto para apuntar a la sección 'projects'
+                                className="nav-link pNav manrope-regular relative group text-gray-600 hover:text-black"
+                                onClick={(e) => {
+                                    e.preventDefault(); // Prevenir la recarga de la página
+                                    document.getElementById('home').scrollIntoView({
+                                        behavior: 'smooth' // Hacer el desplazamiento suave
+                                    });
+                                }}
+                            >
+                                <span className="relative z-10 p-1 font-normal group-hover:font-bold">
+                                    Home
+                                </span>
+                                {/* El texto se vuelve negrita en hover */}
                                 <span className="absolute left-1/2 -bottom-1 w-0 h-1 bg-[#d57536] transition-all group-hover:w-3/6 transform -translate-x-1/2"></span>
                                 <span className="absolute right-1/2 -bottom-1 w-0 h-1 bg-[#d57536] transition-all group-hover:w-3/6 transform translate-x-1/2"></span>
                             </a>
-
                         </li>
                         <li>
-                            <a href="#" className="nav-link pNav manrope-regular relative group text-gray-600 hover:text-black">
-                                <span className="relative z-10 p-1 font-normal group-hover:font-bold">Projects</span> {/* El texto se vuelve negrita en hover */}
+                            <a
+                                href="#projects" // Cambia esto para apuntar a la sección 'projects'
+                                className="nav-link pNav manrope-regular relative group text-gray-600 hover:text-black"
+                                onClick={(e) => {
+                                    e.preventDefault(); // Prevenir la recarga de la página
+                                    document.getElementById('projects').scrollIntoView({
+                                        behavior: 'smooth' // Hacer el desplazamiento suave
+                                    });
+                                }}
+                            >
+                                <span className="relative z-10 p-1 font-normal group-hover:font-bold">
+                                    Projects
+                                </span>
+                                {/* El texto se vuelve negrita en hover */}
                                 <span className="absolute left-1/2 -bottom-1 w-0 h-1 bg-[#d57536] transition-all group-hover:w-3/6 transform -translate-x-1/2"></span>
                                 <span className="absolute right-1/2 -bottom-1 w-0 h-1 bg-[#d57536] transition-all group-hover:w-3/6 transform translate-x-1/2"></span>
                             </a>
-
                         </li>
                         <li>
                             <a href="#" className="nav-link pNav manrope-regular relative group text-gray-600 hover:text-black">
@@ -76,7 +98,7 @@ function Header() {
               
 
             {/* Nombre y título */}
-                <div className="div4 text-center p-4 align-items-center">
+                <div className="div4  flex flex-col text-center align-items-center">
                 
                     
                     <h1 className="dotgothic16-regular mb-5 display-3">Javier Montes</h1>
